@@ -1,0 +1,557 @@
+* {
+    margin: 0;
+}
+
+/*html, body {*/
+/*min-height: 100%;*/
+/*height: 100%;*/
+/*overflow: hidden;*/
+/*}*/
+
+#vconst-wrapper {
+    overflow: hidden;
+    /*display: table-row;*/
+}
+
+.vconst-menu {
+    position: absolute;
+    box-sizing: border-box;
+    z-index: 1000;
+    /*width: 440px;*/
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+.vconst-menu-group {
+    /*margin-left: 15px;*/
+}
+
+.vconst-group-title {
+    font-weight: bold;
+}
+
+.vconst-group-title {
+    cursor: pointer;
+    background: #FFF;
+    margin-bottom: 3px;
+    transition: background 0.5s;
+    width: 110px;
+    height: 110px;
+    text-align: center;
+    margin: 9px 9px 0 9px;
+    position: relative;
+}
+
+.vconst-signle-menu-item {
+    cursor: pointer;
+    overflow: hidden;
+    padding: 10px;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.vconst-signle-menu-item:first-child {
+    border-top: 1px solid #d8d8d8;
+}
+
+.vconst-group-holder > div {
+    padding: 10px;
+    border-bottom: 1px solid #d8d8d8;
+    position: relative;
+}
+
+.vconst-signle-menu-item.disabled:after {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: rgba(255,255,255,0.5);
+    left: 0;
+}
+
+.vconst-menu-group.active .vconst-group-title {
+    transform: scale(1.05);
+    border-right: 3px solid #B0DFB8;
+}
+
+.vconst-signle-menu-item:hover, .vconst-group-title:hover {
+    /*background: #6a8d6a;*/
+}
+
+.vconst-signle-menu-item.selected {
+    background-color: #d8d8d8;
+}
+
+.vconst-preview {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    /*display: table-cell;*/
+}
+
+.viewport {
+    width: 100%;
+    height: 100%;
+    /*background-image: url(../img/bg.png);*/
+    /*background-size: contain;*/
+    position: absolute;
+}
+
+img.vconst-layer {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.vconst-thumb, .vconst-signle-menu-thumb {
+    height: 80px;
+    width: 80px;
+    float: left;
+}
+
+.zoom-preview {
+    height: 123px;
+    width: 123px;
+    background: rgba(0,0,0,0.3);
+    z-index: 99999;
+}
+
+#orig-canvas, #test-canvas {
+    opacity: 0;
+}
+
+#test-canvas {
+    position: absolute;
+}
+
+span.error {
+    color: #FF0000;
+}
+
+canvas {
+    /*border-radius: 50%;*/
+    /*border: 1px solid #dc7100;*/
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    /*left: 0;*/
+    /*right: 0;*/
+    /*top: 0;*/
+    /*bottom: 0;*/
+    /*position: absolute;*/
+}
+
+img.vconst-group-thumb {
+    width: 80px;
+    height: 80px;
+    max-height: 100%;
+    max-width: 100%;
+    display: inline;
+}
+
+.vconst-group-holder {
+    position: absolute;
+    top: 10px;
+    left: 140px;
+    background: #FFF;
+    border: 1px solid #a4a2a2;
+    box-shadow: 5px 5px 0px #F2F2F2;
+    /*width: 280px;*/
+    z-index: 100;
+}
+
+.vconst-group-head {
+    overflow: hidden;
+}
+
+.set-default {
+    cursor: pointer;
+}
+
+.scrollBtn {
+    position: absolute;
+    z-index: 999999;
+    width: 130px;
+    height: 50px;
+    color: #FFF;
+    line-height: 50px;
+    text-align: center;
+    background-position: center;
+}
+
+.scrollBottom {
+    bottom: 0;
+    background-image: url("../img/scroll-arrow-down.svg");
+}
+
+.scrollTop {
+    background-image: url("../img/scroll-arrow-up.svg");
+}
+
+.vconst-menu-holder {
+    position: relative;
+    width: 130px;
+    background: #b8b8b8;
+    padding: 1px 1px 10px 1px;
+    min-height: 100%;
+    box-sizing: border-box;
+    transition: top 0.5s;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+div#vconst-actions {
+    position: absolute;
+    right: 50px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 200px;
+}
+
+.close-btn {
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.vconst-changed {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #71abd7;
+    top: 10px;
+    left: 10px;
+    border-radius: 50%;
+}
+
+#logo {
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    top:50px;
+    left:20%;
+}
+
+#preloader {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: rgba(255,255,255,0.9)
+}
+
+.spinner {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    opacity: 1;
+    animation-name: flashing;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+.copyCanvas {
+    display: none;
+}
+
+@keyframes flashing {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+.pizzeria {
+    width: 100%;
+    height: 200px;
+    border: 2px solid transparent;
+    text-align: center;
+    background-size: cover;
+    cursor: pointer;
+    position: relative;
+    background-position: center;
+}
+
+.pizzeria:hover {
+    border-color: #FF0000;
+}
+
+.pizzeria.selected {
+    border-color: #00FF00;
+}
+
+.pizzeria.disabled:after {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.5);
+    top: 0;
+    left: 0;
+}
+
+span.pizzeria-title {
+    color: #FFF;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 200px;
+    position: relative;
+}
+
+.menu-item img {
+    float: left;
+    width: 80px;
+}
+
+.menu-item {
+    overflow: hidden;
+}
+
+.menu-item span {
+    font-size: 18px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.side-menu-title {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 80px;
+}
+
+#cart .order {
+    background: #EEE;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1400px) {
+    .vconst-menu {
+        width: 100%;
+        height: 130px;
+        bottom: 0;
+    }
+
+    .vconst-menu-group {
+        float: left;
+    }
+
+    .vconst-menu-holder {
+        width: auto;
+        display: inline-flex;
+        height: 130px;
+        min-width: 100%;
+    }
+
+    .vconst-group-title {
+        margin: 10px 5px;
+    }
+
+    .scrollBtn {
+        height: 130px;
+        width: 50px;
+        color: #FFF;
+        line-height: 130px;
+        text-align: center;
+        background-position: center;
+    }
+
+    .scrollBottom {
+        top: 0;
+        right: 0;
+        background-image: url("../img/scroll-arrow-right.svg");
+    }
+
+    .scrollTop {
+        background-image: url("../img/scroll-arrow-left.svg");
+    }
+
+    .vconst-menu-holder {
+        transition: left 0.5s;
+    }
+
+    .vconst-group-holder {
+        top: auto;
+        bottom: 140px;
+        left: 20px;
+    }
+
+    .vconst-menu-group.active .vconst-group-title {
+        transform: scale(1.05);
+        border-right: none;
+        border-top: 3px solid #B0DFB8;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .vconst-menu {
+        height: 95px;
+    }
+
+    .vconst-menu-holder {
+        width: auto;
+        display: inline-flex;
+        height: 95px;
+    }
+
+    .vconst-group-title {
+        margin: 5px 2px;
+    }
+
+    .scrollBtn {
+        display: none;
+    }
+
+    .vconst-menu-holder {
+        transition: left 0.5s;
+    }
+
+    .vconst-group-title {
+        width: 85px;
+        height: 85px;
+    }
+
+    img.vconst-group-thumb {
+        width: 55px;
+        height: 55px;
+    }
+
+    .vconst-group-holder {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+}
+
+.product_thumb {
+    width: 300px;
+    float: left;
+}
+
+.vc-order {
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.vc-order.accepted {
+    background-color: #9bbd9b;
+}
+
+.vc-order.deny {
+    background-color: #ff7f70;
+}
+
+.vc-order.pending {
+    background-color: #fffbaf;
+}
+
+.main-product, .side-product {
+    padding: 10px;
+    background-color: #dfdfdf;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.product-descr {
+    padding: 0 5px;
+    float: left;
+}
+
+.collapsed {
+    display: none;
+}
+
+button.save {
+    display: none;
+}
+
+div#intolerance-list {
+    position: absolute;
+    bottom: 130px;
+    right: 0;
+    z-index: 9999;
+}
+
+.intolerance-item {
+    float: left;
+    padding: 5px;
+    margin: 0 0 5px 5px;
+    border: 1px solid;
+    cursor: pointer;
+}
+
+.pizzeria .description {
+    font-size: 18px;
+    color: #FFF;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
+.intolerance-item.selected {
+    background-color: #dfdfdf;
+
+}
+
+div#intolerance-list > span {
+    float: left;
+}
+
+.rating .filled {
+    display: block;
+    width: 16px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 16px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAaCAQAAAAOXfQCAAABCUlEQVR4AZ3LLUhDURyG8f8QhIEKLqhFBLEYTGoSlrQpzDbEJFosqzZNgslgWNIlEQTLwCQ2iwwGA4NtCKIwEEHDEC73kRMO93o9Hzv397YXHrGjzILkwQkH+cInHiQcM0BEKTzcR9kKD29RLkOzIn2UD4bCwnW0lbCwjnYcFr6gdcSGKi3af9YhrZ3ZIxs6LdNlUM8sS4JRLvCLOaMoWVTo4fLKmpgxQRObK8bFhT3+i6iKD0uYzPnDI0xq/rCFyZ0vmyLG5IcRd7hDossbiU13eIPWYIwS12jnrmyYL5QeFf2xzSfKOwV7uIrSZFJSmOYeZdEenvLNruEvUKPPoT1sMCsWzFOXlF/KUOr5gGt3VgAAAABJRU5ErkJggg==);
+}
+
+.rating .not-filled {
+    display: block;
+    width: 16px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 16px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAaCAQAAAAOXfQCAAAA/0lEQVR4AZ3SW0sCQRjG8Skzkw5EGAWCCApJeBFFQSEtSGEURGoElnaw3fn+3+AfDDE7G3No9n2u3neen96scA+H7IkywwUn5eAzj2XYFpKUWjw8RiLpxsM7BYexrMJSwXdW4mAL+ZuDODjQ8DwOvmo4dZc6jJkUMkUamfzJE63845oh/5kX9s1/rZIQRhlXVDTSuM3Cy95oCvuwwcjJhqwL39CzoJSOCA0NpCU7YXhmhf0wHFvhfYjVyazwmzU/PDLKM+bG1vbDW11MqFLjRu/XPrbKpyot8t+ny4e6zX2wqSoj6oXrJg/q3nDDS77oWV/6LDl1w4Rt59suA3P/AYHdZDfGturmAAAAAElFTkSuQmCC);
+}
+
+.rating .filled.half, .rating .not-filled.half {
+    background-size: 200% 100%;
+}
+
+.rating .not-filled.half {
+    background-position: right;
+}
+
+.rating .star {
+    float: left;
+}
+
+#pizzeria-list .pizzeria:before {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    top:0;
+    left:0;
+}
+
+#vconst_settings .price {
+    width: 50px;
+    float: left;
+}

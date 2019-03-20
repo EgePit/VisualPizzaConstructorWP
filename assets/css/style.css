@@ -1,0 +1,15 @@
+#vconst-wrapper {
+    position: relative;
+    height: 700px;
+    width: 100%;
+}
+
+#cart .prod_preview {
+    width: 80px;
+    float: left;
+}
+
+#cart .composition {
+    font-size: 16px;
+    height: 80px;
+}
